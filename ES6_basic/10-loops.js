@@ -1,7 +1,6 @@
 /* eslint-disable */
 export default function appendToEachArrayValue(array, appendString) {
-    for (let idx in array) {
-        let value = array[idx];
+    for (let [idx, value] of array.entries()) {
         array[idx] = appendString + value;
     }
 
