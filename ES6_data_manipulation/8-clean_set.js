@@ -1,6 +1,6 @@
 /*eslint-disable*/
 export default function cleanSet(set, start_string) {
-    if (!set || !start_string) {
+    if (typeof start_string !== 'string' || !start_string.length === 0) {
         return '';
     }
     let result = '';
