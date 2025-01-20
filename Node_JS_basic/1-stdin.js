@@ -1,25 +1,16 @@
-/**
- * 
- * function that displays a prompt to the user and listens for the user's input
- */
+// Use the process.stdin object to read user input and print it to the console.
+const std = require('process');
 
-const readline = require('readline');
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
+// Display message to the console
+std.stdout.write('Welcome to Holberton School, what is your name?\n');
+// Read user input
+std.stdin.on('readable', () => {
+  const name = std.stdin.read();
+  if (name) {
+    std.stdout.write(`Your name is: ${name}`);
+  }
 });
-
-rl.question('Welcome to Holberton School, what is your name?\n', (name) => {
-    console.log(`Your name is: ${name}`);
-    rl.close();
+// When the user closes the input stream, print "This important software is now closing"
+std.stdin.on('end', () => {
+  console.log('This important software is now closing');
 });
-
-rl.on('close', () => {
-    if (!process.stdin.isTTY) {
-        console.log('This important software is now closing');
-    }
-    process.exit(0);
-});
-
-module.exports = process;
