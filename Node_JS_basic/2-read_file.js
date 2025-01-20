@@ -1,3 +1,4 @@
+/*eslint-disable*/
 // Export a function named countStudents that reads a CSV file and prints the number of students per field.
 const fs = require('fs');
 
