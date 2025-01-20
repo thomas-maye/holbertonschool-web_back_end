@@ -1,4 +1,4 @@
-import readDatabase from '../utils.js';
+import readDatabase from '../utils';
 
 class StudentsController {
   static getAllStudents(req, res) {
@@ -23,12 +23,12 @@ class StudentsController {
     }
 
     const db = process.argv[2];
-    readDatabase(db)
+    return readDatabase(db)
       .then((students) => {
         if (!students[major]) {
           return res.status(500).send('Major parameter must be CS or SWE');
         }
-        res.status(200).send(`List: ${students[major].join(', ')}`);
+        return res.status(200).send(`List: ${students[major].join(', ')}`);
       })
       .catch((error) => {
         res.status(500).send(error.message);
