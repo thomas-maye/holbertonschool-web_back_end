@@ -1,10 +1,6 @@
-/**
- * displayMessage - the function that displays message to the console
- * @param {string} message - message to be displayed
- */
-
-function displayMessage(message) {
+// Use displayMessage function to print a message to the console.
+const displayMessage = message => {
   console.log(message);
-}
+};
 
 module.exports = displayMessage;
